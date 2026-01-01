@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulette Driver App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- LOGIN SCREEN -->
+        <section id="login-screen" class="screen active">
+            <div class="login-content">
+                <div class="logo-area">
+                    <span class="material-icons-round logo-icon">health_and_safety</span>
+                    <h1>Driver Portal</h1>
+                    <p>Secure Access</p>
+                </div>
+
+                <form id="login-form">
+                    <div class="input-group">
+                        <span class="material-icons-round">person</span>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="material-icons-round">lock</span>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+                    <p class="forgot-password">Forgot Password?</p>
+                </form>
+            </div>
+        </section>
+
+        <!-- INSPECTION SCREEN -->
+        <section id="inspection-screen" class="screen">
+            <header class="screen-header">
+                <h2>Pre-Trip Inspection</h2>
+                <div class="step-indicator">Step 1 of 1</div>
+            </header>
+
+            <form id="inspection-form" class="scroll-content">
+                <div class="vehicle-info-card">
+                    <span class="material-icons-round">directions_bus</span>
+                    <div>
+                        <h3>Van #560</h3>
+                        <p>Ford Transit • KGY-5592</p>
+                    </div>
+                </div>
+
+                <!-- Capacity Selector -->
+                <div class="capacity-section">
+                    <h3>Van Capacity</h3>
+                    <div class="capacity-options">
+                        <label class="capacity-option">
+                            <input type="checkbox" name="capacity_wheelchair" value="wheelchair">
+                            <div class="option-content">
+                                <span class="material-icons-round">accessible</span>
+                                <span>Wheelchair</span>
+                            </div>
+                            <div class="check-circle">
+                                <span class="material-icons-round">check</span>
+                            </div>
+                        </label>
+                        <label class="capacity-option">
+                            <input type="checkbox" name="capacity_stretcher" value="stretcher">
+                            <div class="option-content">
+                                <img src="stretcher.png" alt="Stretcher" class="capacity-icon-img">
+                                <span>Stretcher</span>
+                            </div>
+                            <div class="check-circle">
+                                <span class="material-icons-round">check</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="inspection-list">
+                    <h3>Vehicle Checks</h3>
+
+                    <label class="check-item check-all-item"
+                        style="border: 2px solid var(--primary-light); background-color: #EEF2FF;">
+                        <input type="checkbox" id="check-all">
+                        <span class="checkmark"><span class="material-icons-round">done_all</span></span>
+                        <span class="text">Check All</span>
+                    </label>
+
+                    <label class="check-item">
+                        <input type="checkbox" required>
+                        <span class="checkmark"><span class="material-icons-round">check</span></span>
+                        <span class="text">Tires & Pressure</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" required>
+                        <span class="checkmark"><span class="material-icons-round">check</span></span>
+                        <span class="text">Headlights & Signals</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" required>
+                        <span class="checkmark"><span class="material-icons-round">check</span></span>
+                        <span class="text">Mirrors & Windows</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" required>
+                        <span class="checkmark"><span class="material-icons-round">check</span></span>
+                        <span class="text">Brakes & Fluid</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" required>
+                        <span class="checkmark"><span class="material-icons-round">check</span></span>
+                        <span class="text">Stretcher Equipment</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" required>
+                        <span class="checkmark"><span class="material-icons-round">check</span></span>
+                        <span class="text">Wheelchair Lift</span>
+                    </label>
+                </div>
+
+                <div class="manual-input">
+                    <h3>Van number</h3>
+                    <div class="input-wrapper">
+                        <input type="number" id="van-number" placeholder="#560" required>
+                    </div>
+                </div>
+                <div class="manual-input">
+                    <h3>Plate number</h3>
+                    <div class="input-wrapper">
+                        <input type="text " id="plate-number" placeholder="lnj3457" required>
+                    </div>
+                </div>
+                <div class="manual-input">
+                    <h3>Mileage reading</h3>
+                    <div class="input-wrapper">
+                        <input type="number" id="mileage-reading" placeholder="45021" required>
+                        <span class="unit">miles</span>
+                    </div>
+                </div>
+
+
+                <div class="manual-input">
+                    <h3>Report equipment issues</h3>
+                    <div class="input-wrapper">
+                        <textarea id="equipment-issues" placeholder="Describe any issues..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Signature Section -->
+                <div class="signature-section">
+                    <h3>Driver Signature <span style="color: #EF4444;">*</span></h3>
+                    <p class="sig-instructions">Sign below to confirm inspection</p>
+                    <div class="signature-pad-container">
+                        <canvas id="signature-pad" width="340" height="150"></canvas>
+                        <div class="sig-actions">
+                            <span id="clear-signature">Clear</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg floating-action">Start Shift</button>
+            </form>
+        </section>
+
+        <!-- HELPER SCREEN -->
+        <section id="helper-screen" class="screen">
+            <header class="job-header">
+                <button class="icon-btn" id="helper-back-btn">
+                    <span class="material-icons-round">arrow_back</span>
+                </button>
+                <h2>Your helper</h2>
+                <div style="width: 24px;"></div> <!-- Spacer -->
+            </header>
+
+            <div class="job-content scroll-content">
+                <div class="helper-info-card">
+                    <div class="helper-header">
+                        <div class="helper-details">
+                            <h3>twca Kelvin</h3>
+                            <p>Mobile <span>(332) 236-2079</span></p>
+                        </div>
+                        <div class="helper-avatar">
+                            <span class="material-icons-round">person</span>
+                        </div>
+                    </div>
+                    <div class="helper-actions">
+                        <button class="action-circle call"><span class="material-icons-round">call</span></button>
+                        <button class="action-circle message"><span
+                                class="material-icons-round">chat_bubble</span></button>
+                        <button class="action-circle video"><span class="material-icons-round">videocam</span></button>
+                    </div>
+                </div>
+
+                <div class="helper-location-card">
+                    <div class="loc-label-header">Home</div>
+                    <div class="loc-details-row">
+                        <div class="loc-address-info">
+                            <h4>2858 linden blvd</h4>
+                            <p>Brooklyn, ny</p>
+                        </div>
+                        <span class="material-icons-round loc-icon">location_on</span>
+                    </div>
+                </div>
+
+                <div class="helper-time-info">
+                    <div class="time-label">Company Assigned Pickup Time</div>
+                    <div class="time-value">07:30 AM</div>
+                </div>
+
+                <div class="job-actions">
+                    <div class="swipe-container" id="swipe-helper">
+                        <div class="swipe-track">
+                            <div class="swipe-knob">
+                                <span class="material-icons-round">keyboard_double_arrow_right</span>
+                            </div>
+                            <span class="swipe-text">Swipe to Pick Up Helper</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-lg" id="btn-pick-up-later"
+                        style="margin-top: 15px; width: 100%;">Pick up later</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MAIN APP SCREENS (Trips & Map) -->
+        <div id="main-app" class="screen">
+
+            <header class="app-header">
+                <div class="header-left">
+                    <button class="icon-btn"><span class="material-icons-round">menu</span></button>
+                    <h1 id="page-title">Available Trips</h1>
+                </div>
+                <div class="header-right">
+                    <div class="status-pill">On Duty</div>
+                </div>
+            </header>
+
+            <!-- TRIPS VIEW -->
+            <div id="trips-view" class="view-content active-view">
+                <div class="trips-list" id="trips-container">
+                    <!-- Cards will be injected by JS -->
+                </div>
+            </div>
+
+            <!-- MAP VIEW -->
+            <div id="map-view" class="view-content">
+                <div class="map-container">
+                    <div class="map-visual">
+                        <!-- Route Overlay -->
+                        <svg class="route-overlay" id="route-svg" width="100%" height="100%">
+                            <!-- Lines will be injected here -->
+                        </svg>
+
+                        <!-- Driver Location -->
+                        <div class="map-marker driver-marker" id="marker-driver">
+                            <div class="pulse"></div>
+                            <span class="material-icons-round">directions_bus</span>
+                            <div class="marker-label">You</div>
+                        </div>
+
+                        <!-- Patient Locations (Mock) -->
+                        <div class="map-marker patient-marker p1" id="marker-p1" style="top: 30%; left: 70%;">
+                            <img src="stretcher.png" alt="Stretcher" class="map-icon-img">
+                            <div class="marker-label">J. Odette</div>
+                            <div class="eta-tag hidden" id="eta-p1">10 min</div>
+                        </div>
+                        <div class="map-marker patient-marker p2" id="marker-p2" style="top: 60%; left: 30%;">
+                            <span class="material-icons-round">accessible</span>
+                            <div class="marker-label">F. Howard</div>
+                            <div class="eta-tag hidden" id="eta-p2">25 min</div>
+                        </div>
+                        <div class="map-marker patient-marker p3" style="top: 20%; left: 40%;">
+                            <span class="material-icons-round">accessible</span>
+                            <div class="marker-label">A. Farock</div>
+                        </div>
+
+                        <!-- Hospital Location -->
+                        <div class="map-marker hospital-marker" id="marker-hospital" style="top: 80%; left: 80%;">
+                            <img src="hospital.png" alt="Hospital" class="map-icon-img">
+                            <div class="marker-label">Med Center</div>
+                            <div class="eta-tag hidden" id="eta-hosp">45 min</div>
+                        </div>
+                    </div>
+
+                    <div class="map-overlay-info">
+                        <p>3 Patients nearby</p>
+                        <button class="btn btn-sm btn-glass">Optimize Route</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM NAVIGATION -->
+            <nav class="bottom-nav">
+                <div class="nav-item active" data-target="trips-view">
+                    <span class="material-icons-round">format_list_bulleted</span>
+                    <span>Trips</span>
+                </div>
+                <div class="nav-icon-main" id="pause-btn">
+                    <span class="material-icons-round">pause</span>
+                </div>
+                <div class="nav-item" data-target="map-view">
+                    <span class="material-icons-round">map</span>
+                    <span>Map</span>
+                </div>
+            </nav>
+
+        </div>
+
+        <!-- BREAK SUGGESTION POPUP -->
+        <div id="break-popup" class="bottom-sheet">
+            <div class="sheet-notch"></div>
+            <div class="sheet-content">
+                <div class="break-icon-area">
+                    <span class="material-icons-round">local_cafe</span>
+                </div>
+                <h2>Rest Period</h2>
+                <p class="break-subtitle">It's recommended to take a 30 min break every 8 hours.</p>
+
+                <div class="timer-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" class="timer-bg"></circle>
+                        <circle cx="50" cy="50" r="45" class="timer-progress" id="break-progress"></circle>
+                    </svg>
+                    <div class="timer-text" id="break-timer">30:00</div>
+                </div>
+
+                <div class="break-actions">
+                    <button class="btn-play" id="resume-work-btn">
+                        <span class="material-icons-round">play_arrow</span>
+                    </button>
+                    <p>Resume Work</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- JOB DETAILS SCREEN -->
+        <section id="job-details-screen" class="screen">
+            <!-- Header (Navy) -->
+            <header class="job-header">
+                <button class="icon-btn" id="job-back-btn">
+                    <span class="material-icons-round">arrow_back</span>
+                </button>
+                <h2>Job details</h2>
+                <div style="width: 24px;"></div> <!-- Spacer -->
+            </header>
+
+            <!-- Status Bar (Dynamic Color) -->
+            <div class="job-status-bar" id="job-status-banner">
+                <span id="job-status-text">01 - Dispatched</span>
+            </div>
+
+            <div class="job-content scroll-content">
+                <!-- Patient Header -->
+                <div class="job-patient-card">
+                    <div class="jp-main">
+                        <span class="material-icons-round phone-icon">call</span>
+                        <div class="jp-info">
+                            <h3 id="job-patient-name">JENKINS ODETTE</h3>
+                            <a id="job-patient-phone-link" href="tel:(347) 866-6337">
+                                <p id="job-patient-phone">(347) 866-6337</p>
+                            </a>
+                        </div>
+                        <div class="jp-meta">
+                            <div class="jp-time-box">
+                                <span class="material-icons-round">schedule</span>
+                                <span class="jp-label">P/U <br> <span id="job-time">12:00</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Locations (Light Blue) -->
+                <div class="job-locations">
+                    <!-- From -->
+                    <div class="loc-row">
+                        <div class="loc-label">from:</div>
+                        <div class="loc-data">
+                            <h4 id="job-pickup-addr">763 E 82nd St</h4>
+                            <p id="job-pickup-city">Brooklyn, 11236</p>
+                        </div>
+                        <a id="job-pickup-phone-link" href="tel:(347) 866-6337">
+                            <button class="icon-btn small-call"><span class="material-icons-round">call</span></button>
+                        </a>
+                    </div>
+
+                    <!-- Visual Connector -->
+                    <div class="loc-connector">
+                        <div class="dashed-line"></div>
+                        <div class="dist-badge">distance: <span id="job-distance">2.3 mi</span></div>
+                    </div>
+
+                    <!-- To (Darker Teal) -->
+                    <div class="loc-row highlight">
+                        <div class="loc-label">to:</div>
+                        <div class="loc-data">
+                            <h4 id="job-dropoff-addr">2316 Nostrand Ave</h4>
+                            <p id="job-dropoff-city">Brooklyn, 11210</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Map Container -->
+                <div class="job-map-section">
+                    <div class="mini-map" id="job-map">
+                        <!-- Simplified Map Visual -->
+                        <div class="map-grid"></div>
+                        <div class="map-marker driver-marker" style="top:50%; left:50%">
+                            <span class="material-icons-round">directions_bus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons & Swipe Area -->
+                <div class="job-actions">
+                    <div class="swipe-container" id="swipe-action">
+                        <div class="swipe-track">
+                            <div class="swipe-knob">
+                                <span class="material-icons-round">keyboard_double_arrow_right</span>
+                            </div>
+                            <span class="swipe-text">Swipe to 63-Responded</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-danger" id="btn-cancel-job">Cancel Trip</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL SCREEN MAP SCREEN -->
+        <section id="full-map-screen" class="screen">
+            <header class="app-header">
+                <div class="header-left">
+                    <button class="icon-btn" id="hide-map-btn"><span
+                            class="material-icons-round">arrow_back</span></button>
+                    <h1>Trip Map</h1>
+                </div>
+            </header>
+            <div class="map-container">
+                <div class="map-visual full-size">
+                    <!-- Reuse map elements or replicate structure -->
+                    <div class="map-grid"></div>
+                    <!-- Map markers will be placed here by JS -->
+                </div>
+                <!-- Status Footer for Map -->
+                <div class="map-status-footer">
+                    <div class="status-steps">
+                        <div class="status-step active" data-status="01">01 Dispatched</div>
+                        <div class="status-step" data-status="63">63 Responded</div>
+                        <div class="status-step" data-status="88">88 At scene</div>
+                        <div class="status-step" data-status="82">82 Left</div>
+                        <div class="status-step" data-status="dest">At Destination</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CANCEL TRIP MODAL -->
+        <div id="cancel-modal" class="modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>Cancel Trip</h3>
+                    <button class="icon-btn" id="modal-close-x"><span class="material-icons-round">close</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Please provide a reason for cancelling this trip:</p>
+                    <textarea id="cancel-reason"
+                        placeholder="e.g. Patient refused transport, mechanical issue..."></textarea>
+                    <div id="cancel-error" class="error-text"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="modal-cancel-btn">Back</button>
+                    <button class="btn btn-danger" id="modal-confirm-btn">Confirm Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
