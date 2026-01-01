@@ -1,2 +1,2 @@
 # Valdy-Serant-Projects
-My learning path portfolio
+Unleashing my creativity
